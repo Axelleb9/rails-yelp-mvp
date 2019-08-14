@@ -1,0 +1,13 @@
+test
+has_many :reviews, dependent: :destroy
+
+  validates :name, uniqueness: true, presence: true
+  validates :address, presence: true
+  validates :stars, inclusion: { in: ['chinese', 'italian', 'japanese', 'french', 'belgian'] }
+end
+
+belongs_to :restaurant
+
+  validates :content, presence: true
+  validates :rating, inclusion: { in: [0, 1, 2, 3, 4, 5] }
+end
